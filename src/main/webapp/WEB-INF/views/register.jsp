@@ -6,6 +6,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<%@ include file = "jspf/head_config.jspf" %>
+
 <title>Warsztat6 home</title>
 </head>
 <body>
@@ -13,11 +16,10 @@
 <%@ include file = "jspf/mainmenu.jspf" %>
 
 <form:form method="post" modelAttribute="user">
-<p>User Name<form:input path="userName" /></p>
-<p>Email<form:input path="email" /></p>
-<p>Password<form:input path="password" type="password" /></p>
+	<p>User Name<form:input path="userName" /><form:errors path="userName"></form:errors></p>
+	<p>Email<form:input path="email" /><form:errors path="email"></form:errors></p>
+	<p>Password<form:password path="password" /><form:errors path="password"></form:errors></p>
 <p><input type="submit" /></p>
-<form:errors></form:errors>
 </form:form>
 <%@ include file = "jspf/footer.jspf" %>
 </body>
