@@ -12,6 +12,8 @@
 	</c:when>
 
 	<c:otherwise>
+		<a href="">All tweets</a>
+		<a href="user">User tweets</a>
 		<a href="logout">Logout</a>
 	</c:otherwise>
 	

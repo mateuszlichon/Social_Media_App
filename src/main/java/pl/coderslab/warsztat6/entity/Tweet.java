@@ -27,6 +27,7 @@ public class Tweet {
 	
 	public Tweet() {
 		super();
+		this.created = new Date();
 	}
 
 	public long getId() {

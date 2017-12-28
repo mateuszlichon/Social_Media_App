@@ -15,7 +15,7 @@
 <%@ include file = "jspf/main_menu.jspf" %>
 ${msg}
 <%@ include file = "jspf/add_tweet.jspf" %>
-<%@ include file = "jspf/main_feed.jspf" %>
+<%@ include file = "jspf/user_feed.jspf" %>
 <%@ include file = "jspf/footer.jspf" %>
 </body>
 </html>
