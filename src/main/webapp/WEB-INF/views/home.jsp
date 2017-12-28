@@ -12,7 +12,7 @@
 </head>
 <body>
 <%@ include file = "jspf/header.jspf" %>
-<%@ include file = "jspf/mainmenu.jspf" %>
+<%@ include file = "jspf/main_menu.jspf" %>
 ${msg}
 <%@ include file = "jspf/footer.jspf" %>
 </body>

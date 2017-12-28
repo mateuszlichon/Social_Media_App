@@ -1,10 +1,15 @@
 package pl.coderslab.warsztat6.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.mindrot.jbcrypt.BCrypt;
@@ -28,6 +33,9 @@ public class User {
 	@NotEmpty
 	@Column(unique = true)
 	private String email;
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Tweet> tweet = new ArrayList<>();
 
 	public User() {
 		super();
@@ -75,6 +83,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Tweet> getTweet() {
+		return tweet;
+	}
+
+	public void setTweet(List<Tweet> tweet) {
+		this.tweet = tweet;
 	}
 	
 	

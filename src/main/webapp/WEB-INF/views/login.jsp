@@ -13,7 +13,7 @@
 </head>
 <body>
 <%@ include file = "jspf/header.jspf" %>
-<%@ include file = "jspf/mainmenu.jspf" %>
+<%@ include file = "jspf/main_menu.jspf" %>
 <p class="error">${msg}</p>
 
 <form:form method="post" modelAttribute="loginData">
