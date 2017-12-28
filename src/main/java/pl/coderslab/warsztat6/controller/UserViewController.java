@@ -16,21 +16,21 @@ import pl.coderslab.warsztat6.entity.User;
 import pl.coderslab.warsztat6.repository.TweetRepository;
 
 @Controller
-public class HomeController {
-
+public class UserViewController {
+	
 	@Autowired
 	private TweetRepository tweetRepository;
 	
-	@GetMapping("")
-	public String home(Model m) {
+	@GetMapping("user")
+	public String user(Model m) {
 		m.addAttribute("tweet", new Tweet());
-		return "home";
+		return "user";
 	}
-	
-	@ModelAttribute("availableTweets")
-	public List<Tweet> getTweets() {
-		return this.tweetRepository.findAllOrder();
-	}
-	
 
+	@ModelAttribute("userTweets")
+	public List<Tweet> getUserTweets() {
+		HttpSession s = SessionManager.session();
+		User u = (User) s.getAttribute("user");
+		return this.tweetRepository.findByUserIdOrderByCreatedDesc(u.getId());
+	}
 }
