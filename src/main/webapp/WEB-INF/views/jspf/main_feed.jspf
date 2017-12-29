@@ -8,5 +8,7 @@
 <p>text: ${tweet.text}</p>
 <p>created: ${tweet.created}</p>
 <p>author: ${tweet.user.userName}</p>
+<a href="tweet/${tweet.id}">Tweet details</a>
+<br /><br />
 </c:forEach>
 </p>
