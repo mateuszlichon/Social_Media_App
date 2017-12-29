@@ -1,5 +1,6 @@
 package pl.coderslab.warsztat6.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -62,6 +63,7 @@ public class MessageController {
 		message.setSender(sender);
 		User reciever = this.userRepository.findOne(recieverId);
 		message.setReciever(reciever);
+		message.setCreated(new Date());
 		this.messageRepository.save(message);
 		return "redirect:/message";
 	}

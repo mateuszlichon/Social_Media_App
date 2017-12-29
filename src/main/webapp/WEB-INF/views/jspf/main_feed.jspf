@@ -5,10 +5,10 @@
     <%@ page session="true" %>
 <p>
 <c:forEach items="${availableTweets}" var="tweet">
-<p>text: ${tweet.text}</p>
-<p>created: ${tweet.created}</p>
-<p>author:<a href="/Warsztat6/message/${tweet.user.id}">${tweet.user.userName}</a> </p>
-<a href="/Warsztat6/tweet/${tweet.id}">Tweet details</a>
+<p>${tweet.text} <a href="/Warsztat6/tweet/${tweet.id}">(tweet details and comments)</a></p>
+<p>created ${tweet.created} by ${tweet.user.userName}
+<a href="/Warsztat6/message/${tweet.user.id}">(write to author)</a></p>
+
 <br /><br />
 </c:forEach>
 </p>

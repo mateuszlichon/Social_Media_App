@@ -1,5 +1,6 @@
 package pl.coderslab.warsztat6.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -40,6 +41,7 @@ public class TweetController {
 		HttpSession s = SessionManager.session();
 		User u = (User) s.getAttribute("user");
 		tweet.setUser(u);
+		tweet.setCreated(new Date());
 		this.tweetRepository.save(tweet);
 		return "redirect:/";
 	}
@@ -64,6 +66,7 @@ public class TweetController {
 		Tweet tweet = this.tweetRepository.findOne(tweetId);
 		comment.setTweet(tweet);
 		comment.setUser(u);
+		comment.setCreated(new Date());
 		this.commentRepository.save(comment);
 		return "redirect:/tweet/" + tweetId;
 	}
