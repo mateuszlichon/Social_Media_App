@@ -7,8 +7,8 @@
 <c:forEach items="${availableTweets}" var="tweet">
 <p>text: ${tweet.text}</p>
 <p>created: ${tweet.created}</p>
-<p>author: ${tweet.user.userName}</p>
-<a href="tweet/${tweet.id}">Tweet details</a>
+<p>author:<a href="/Warsztat6/message/${tweet.user.id}">${tweet.user.userName}</a> </p>
+<a href="/Warsztat6/tweet/${tweet.id}">Tweet details</a>
 <br /><br />
 </c:forEach>
 </p>
