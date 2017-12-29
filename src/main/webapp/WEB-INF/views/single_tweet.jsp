@@ -13,12 +13,19 @@
 <body>
 <%@ include file = "jspf/header.jspf" %>
 <%@ include file = "jspf/main_menu.jspf" %>
+<%@ include file = "jspf/add_comment.jspf" %>
 ${msg}
 <h3>Tweet details:</h3>
 Id: ${tweet.id}<br />
 Author: ${tweet.user.userName}<br />
 Text: ${tweet.text}<br />
 Created: ${tweet.created}
+
+<c:forEach items="${comments}" var="comment">
+<p>${comment.text}</p>
+<p>${comment.created}</p>
+<p>${comment.user.userName}</p>
+</c:forEach>
 <%@ include file = "jspf/footer.jspf" %>
 </body>
 </html>
