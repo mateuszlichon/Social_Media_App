@@ -16,10 +16,14 @@
 
 <h3>Messages you recieved:</h3>
 
-<c:forEach items="${userMessages}" var="message">
-<p>${message.text}</p>
-<p>${message.created}</p>
-<p>${message.sender.userName}</p>
+<h4>Unread messages:</h4>
+<c:forEach items="${unreadMessages}" var="message">
+<p>message from: ${message.sender.userName} sent: ${message.created} <a href="message/details/${message.id}">read message</a></p>
+</c:forEach>
+
+<h4>Read messages:</h4>
+<c:forEach items="${readMessages}" var="message">
+<p>message from: ${message.sender.userName} sent: ${message.created} <a href="message/details/${message.id}">read message</a></p>
 </c:forEach>
 
 <h3>Messages you sent:</h3>
