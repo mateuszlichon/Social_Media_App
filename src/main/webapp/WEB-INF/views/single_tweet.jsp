@@ -16,9 +16,8 @@
 <%@ include file = "jspf/add_comment.jspf" %>
 ${msg}
 <h3>Tweet details:</h3>
-Id: ${tweet.id}<br />
-Author: ${tweet.user.userName}<br />
 Text: ${tweet.text}<br />
+Author: ${tweet.user.userName}<br />
 Created: ${tweet.created}
 
 <c:forEach items="${comments}" var="comment">

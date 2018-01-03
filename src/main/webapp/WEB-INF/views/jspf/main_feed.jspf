@@ -8,9 +8,12 @@
 <c:forEach items="${availableTweets}" var="tweet">
 <c:set var = "full" value = "${tweet.text}"></c:set>
 <c:set var = "part" value = "${fn:substring(full, 0, 30) }"></c:set>
+<div class="tweet">
 <p>${part} <a href="/Warsztat6/tweet/${tweet.id}">(tweet details and comments)</a></p>
 <p>created ${tweet.created} by ${tweet.user.userName}
 <a href="/Warsztat6/usersTweets/${tweet.user.id}">(user tweets)</a></p>
+<p>Number of comments ${tweet.commentSize}</p>
+</div>
 <br />
 </c:forEach>
 </p>

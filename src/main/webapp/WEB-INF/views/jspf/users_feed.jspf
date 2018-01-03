@@ -6,8 +6,7 @@
 <p>
 <c:forEach items="${usersTweets}" var="tweet">
 <p>${tweet.text} <a href="/Warsztat6/tweet/${tweet.id}">(tweet details and comments)</a></p>
-<p>created ${tweet.created} by ${tweet.user.userName}
-<a href="/Warsztat6/message/${tweet.user.id}">(write to author)</a></p>
-<br />
+<p>created ${tweet.created} by ${tweet.user.userName}</p>
+<p>Number of comments ${tweet.commentSize}</p>
 </c:forEach>
 </p>
