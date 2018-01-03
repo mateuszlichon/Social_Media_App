@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -26,7 +27,7 @@ public class Tweet {
 	@ManyToOne
 	private User user;
 	
-	@Max(140)
+	@Size(max=140)
 	@NotEmpty
 	private String text;
 	
