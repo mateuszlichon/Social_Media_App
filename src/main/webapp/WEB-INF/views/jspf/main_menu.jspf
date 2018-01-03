@@ -13,8 +13,9 @@
 	</c:when>
 
 	<c:otherwise>
-		<a href="/Warsztat6/user">User tweets</a>
-		<a href="/Warsztat6/message">User messages</a>
+		<a href="/Warsztat6/user">Your tweets</a>
+		<a href="/Warsztat6/message">Your messages</a>
+		<a href="/Warsztat6/change">Change your account details</a>
 		<a href="/Warsztat6/logout">Logout</a>
 	</c:otherwise>
 	

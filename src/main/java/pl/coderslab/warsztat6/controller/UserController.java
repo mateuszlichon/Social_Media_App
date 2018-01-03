@@ -1,5 +1,7 @@
 package pl.coderslab.warsztat6.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -31,10 +33,19 @@ public class UserController {
 	}
 
 	@PostMapping("/register")
-	public String registerPost(@Valid @ModelAttribute User user, BindingResult bindingResult) {
+	public String registerPost(@Valid @ModelAttribute User user, BindingResult bindingResult, Model m) {
 		if (bindingResult.hasErrors()) {
-			return "redirect:/register";
+			return "register";
 		}
+		
+		List<User> users = this.userRepository.findAll();
+		for (User u : users) {
+			if (u.getEmail().equals(user.getEmail())) {
+				m.addAttribute("msg", "This email address is already used. Try different email.");
+				return "register";
+			}
+		}
+		
 		this.userRepository.save(user);
 		return "redirect:/";
 	}
@@ -51,11 +62,31 @@ public class UserController {
 			if (u != null && u.isPasswordCorrect(loginData.getPassword())) {
 				HttpSession s = SessionManager.session();
 				s.setAttribute("user", u);
-				ra.addFlashAttribute("msg", "Jestes zalogowany");
+				ra.addFlashAttribute("msg", "You are logged");
 				return "redirect:/";
 		}
-		m.addAttribute("msg", "Wprowadz poprawne dane");
+		m.addAttribute("msg", "Insert valid data");
 		return "login";
+	}
+	
+	@GetMapping("/change")
+	public String changeUser(Model m) {
+		HttpSession s = SessionManager.session();
+		User u = (User) s.getAttribute("user");
+		m.addAttribute("user", u);
+		return "change";
+	}
+	
+	@PostMapping("/change")
+	public String changePost(@Valid @ModelAttribute User user, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "redirect:/register";
+		}
+		HttpSession s = SessionManager.session();
+		User u = (User) s.getAttribute("user");
+		user.setId(u.getId());
+		this.userRepository.save(user);
+		return "redirect:/";
 	}
 	
 	@GetMapping("/logout")

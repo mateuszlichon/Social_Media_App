@@ -2,13 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
     <%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
     <%@ page session="true" %>
 <p>
 <c:forEach items="${availableTweets}" var="tweet">
-<p>${tweet.text} <a href="/Warsztat6/tweet/${tweet.id}">(tweet details and comments)</a></p>
+<c:set var = "full" value = "${tweet.text}"></c:set>
+<c:set var = "part" value = "${fn:substring(full, 0, 30) }"></c:set>
+<p>${part} <a href="/Warsztat6/tweet/${tweet.id}">(tweet details and comments)</a></p>
 <p>created ${tweet.created} by ${tweet.user.userName}
-<a href="/Warsztat6/message/${tweet.user.id}">(write to author)</a></p>
-
-<br /><br />
+<a href="/Warsztat6/usersTweets/${tweet.user.id}">(user tweets)</a></p>
+<br />
 </c:forEach>
 </p>

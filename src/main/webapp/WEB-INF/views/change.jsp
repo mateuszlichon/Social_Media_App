@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false"%>
+    pageEncoding="UTF-8"%>
     <%@	taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,14 +14,25 @@
 <body>
 <%@ include file = "jspf/header.jspf" %>
 <%@ include file = "jspf/main_menu.jspf" %>
-<p class="error">${msg}</p>
 
-<form:form method="post" modelAttribute="user">
-	<p>User Name<form:input path="userName" /><form:errors path="userName"></form:errors></p>
-	<p>Email<form:input path="email" /><form:errors path="email"></form:errors></p>
-	<p>Password<form:password path="password" /><form:errors path="password"></form:errors></p>
-<p><input type="submit" /></p>
-</form:form>
+	<c:choose>
+
+		<c:when test="${sessionScope.user == null}">
+		You need to be logged in, in order to edit use details.
+	</c:when>
+
+		<c:otherwise>
+			<form:form method="post" modelAttribute="user">
+				<p>User Name<form:input path="userName" /><form:errors path="userName"></form:errors></p>
+				<p>Email<form:input path="email" /><form:errors path="email"></form:errors></p>
+				<p>Password<form:password path="password" /><form:errors path="password"></form:errors></p>
+			<p><input type="submit" /></p>
+			</form:form>
+		</c:otherwise>
+
+	</c:choose>
+
+
 <%@ include file = "jspf/footer.jspf" %>
 </body>
 </html>

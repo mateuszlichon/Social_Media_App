@@ -12,7 +12,8 @@
 	</c:when>
 
 		<c:otherwise>
-			<form:form action="add/${recieverId}"  method="post" modelAttribute="message">
+		<h3>Write message:</h3>
+			<form:form action="/Warsztat6/message/add/${recieverId}"  method="post" modelAttribute="message">
 				Message Text <form:input path="text" type="text" /><form:errors path="text"></form:errors><br />
 				<input type="submit" />
 			</form:form>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import pl.coderslab.warsztat6.bean.SessionManager;
 import pl.coderslab.warsztat6.entity.Tweet;
@@ -26,7 +27,7 @@ public class UserViewController {
 		m.addAttribute("tweet", new Tweet());
 		return "user";
 	}
-
+	
 	@ModelAttribute("userTweets")
 	public List<Tweet> getUserTweets() {
 		HttpSession s = SessionManager.session();
