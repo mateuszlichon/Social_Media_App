@@ -36,7 +36,7 @@ public class TweetController {
 	@PostMapping("/add")
 	public String addPost(@Valid @ModelAttribute Tweet tweet, BindingResult bindingResult) {
 		if (bindingResult.hasErrors()) {
-			return "redirect:/";
+			return "home";
 		}
 		HttpSession s = SessionManager.session();
 		User u = (User) s.getAttribute("user");

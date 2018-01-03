@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -31,6 +32,7 @@ public class User {
 	private boolean enabled;
 	
 	@NotEmpty
+	@Email
 	@Column(unique = true)
 	private String email;
 	

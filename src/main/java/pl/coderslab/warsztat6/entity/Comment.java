@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Max;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Comment {
@@ -23,6 +26,8 @@ public class Comment {
 	
 	private Date created;
 	
+	@Max(60)
+	@NotEmpty
 	private String text;
 
 	public Comment() {

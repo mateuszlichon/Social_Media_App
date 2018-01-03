@@ -4,7 +4,6 @@
     <%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <%@ page session="true" %>
 <p>
-		<a href="/Warsztat6/">All tweets</a>
 <c:choose>
 
 	<c:when test="${sessionScope.user == null}">
@@ -13,6 +12,7 @@
 	</c:when>
 
 	<c:otherwise>
+		<a href="/Warsztat6/">All tweets</a>
 		<a href="/Warsztat6/user">Your tweets</a>
 		<a href="/Warsztat6/message">Your messages</a>
 		<a href="/Warsztat6/change">Change your account details</a>

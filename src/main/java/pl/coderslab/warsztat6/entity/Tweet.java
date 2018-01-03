@@ -12,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Max;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Tweet {
@@ -23,6 +26,8 @@ public class Tweet {
 	@ManyToOne
 	private User user;
 	
+	@Max(140)
+	@NotEmpty
 	private String text;
 	
 	private Date created;

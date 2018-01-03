@@ -46,8 +46,9 @@ public class UserController {
 				return "register";
 			}
 		}
-		
 		this.userRepository.save(user);
+		HttpSession s = SessionManager.session();
+		s.setAttribute("user", user);
 		return "redirect:/";
 	}
 
